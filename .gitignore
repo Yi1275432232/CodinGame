@@ -1,0 +1,9 @@
+*
+!.gitignore
+!*/
+!*.c
+!*.cpp
+!*.cxx
+!*.cc
+!*.java
+!*.py
