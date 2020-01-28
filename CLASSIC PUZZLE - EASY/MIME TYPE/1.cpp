@@ -7,25 +7,25 @@
 using namespace std;
 
 vector<string> split(string str, string pattern) {
-    string::size_type pos;
-    vector<string> result;
+    vector<string> parts;
+    string::size_type pos = string::npos;
 
-    int size = str.size();
-
-    for (int i = 0; i < size; ++i) {
+    for (int i = 0; i < str.size(); ++i) {
         pos = str.find(pattern, i);
+
         if (pos != string::npos) {
-            string s = str.substr(i, pos - 1);
-            result.push_back(s);
+            string s = "";
+            s = str.substr(i, pos - i);
+            parts.push_back(s);
             i = pos + pattern.size() - 1;
         } else {
             string s = str.substr(i, str.size() - 1);
-            result.push_back(s);
+            parts.push_back(s);
             break;
         }
     }
 
-    return result;
+    return parts;
 }
 
 /**
