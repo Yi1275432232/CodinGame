@@ -61,16 +61,12 @@ int main() {
             continue;
         }
 
-        vector<string> splits = split(FNAME, ".");
-        bool flag = false;
-        for (auto element : splits) {
-            if (myMap.find(element) != myMap.end()) {
-                cout << myMap[element] << endl;
-                flag = true;
-                break;
-            }
-        }
-        if (!flag)
+        vector<string> parts = split(FNAME, ".");
+
+        string type = parts.back();
+        if (myMap.find(type) != myMap.end())
+            cout << myMap[type] << endl;
+        else
             cout << "UNKNOWN" << endl;
     }
 
